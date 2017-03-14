@@ -42,6 +42,24 @@ public class VectorImpl implements Vector {
 		return new VectorImpl(listC);
 	}
 
+	public Vector sub(Vector a, Vector b) {
+		List<Integer> listA = a.get();
+		List<Integer> listB = b.get();
+		List<Integer> listC = new ArrayList<Integer>();
+
+		assert listA.size() == listB.size();
+		assert listA.size() > 0;
+		assert listB.size() > 0;
+
+		for(int i = 0; i < listA.size(); i++) {
+			listC.add(listA.get(i) - listB.get(i));
+		}
+
+		assert listC.size() == listA.size();
+
+		return new VectorImpl(listC);
+	}
+
 	public List<Integer> get() {
 		return list;
 	}

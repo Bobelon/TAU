@@ -74,4 +74,18 @@ public class VectorTest {
 
 		assertEquals(Arrays.asList(9, 8, 7, 6, 1), list);
 	}
+	
+	@Test
+	public void subTest() {
+		Vector vectorC = new VectorImpl(null);
+
+		vectorC = vectorC.sub(new VectorImpl(Arrays.asList(10, 10, 10)), new VectorImpl(Arrays.asList(20, 30, 40)));
+		assertEquals(Arrays.asList(-10, -20, -30), vectorC.get());
+
+		vectorC = vectorC.sub(new VectorImpl(Arrays.asList(-100, 0, 500)), new VectorImpl(Arrays.asList(90, 80, 100)));
+		assertEquals(Arrays.asList(-190, -80, 400), vectorC.get());
+
+		vectorC = vectorC.sub(new VectorImpl(Arrays.asList(1, 2, 3, 4, 5, 6)), new VectorImpl(Arrays.asList(1, 2, 3, 4, 5, 6)));
+		assertEquals(Arrays.asList(0, 0, 0, 0, 0, 0), vectorC.get());
+	}
 }
