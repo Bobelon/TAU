@@ -24,7 +24,7 @@ public class VectorTest {
 		assertEquals(Arrays.asList(15, 16, 17, -2), vector.get());	
 	}
 
-	@Test(expected = AssertionError.class)
+	@Test(expected = ErrorException.class)
 	public void addToVectorErrorTest() {
 		Vector vector = new VectorImpl(Arrays.asList(1, 2, 3));
 
@@ -35,11 +35,11 @@ public class VectorTest {
 	public void addTwoVectorsTest() {
 		Vector vectorC = new VectorImpl(null);
 
-		vectorC = vectorC.add(new VectorImpl(Arrays.asList(10, 10, 10)), new VectorImpl(Arrays.asList(20, 30, 45)));
-		assertEquals(Arrays.asList(30, 40, 55), vectorC.get());
+		vectorC = vectorC.add(new VectorImpl(Arrays.asList(10, 10, 10)), new VectorImpl(Arrays.asList(90, 80, 100)));
+		assertEquals(Arrays.asList(100, 90, 110), vectorC.get());
 
-		vectorC = vectorC.add(new VectorImpl(Arrays.asList(-100, 0, 500)), new VectorImpl(Arrays.asList(90, 80, 100)));
-		assertEquals(Arrays.asList(-10, 80, 600), vectorC.get());
+		vectorC = vectorC.add(new VectorImpl(Arrays.asList(-100, 0, 500)), new VectorImpl(Arrays.asList(20, 30, 45)));
+		assertEquals(Arrays.asList(-80, 30, 545), vectorC.get());
 
 		vectorC = vectorC.add(new VectorImpl(Arrays.asList(1, 2, 3, 4, 5, 6)), new VectorImpl(Arrays.asList(6, 5, 4, 3, 2, 1)));
 		assertEquals(Arrays.asList(7, 7, 7, 7, 7, 7), vectorC.get());
@@ -59,7 +59,7 @@ public class VectorTest {
 		assertEquals(Arrays.asList(50, 70, -9), vector.get());
 	}
 
-	@Test (expected = AssertionError.class)
+	@Test (expected = ErrorException.class)
 	public void settersErrorTest() {
 		Vector vector = new VectorImpl(Arrays.asList(1, 1, 1));
 
@@ -73,19 +73,5 @@ public class VectorTest {
 		List<Integer> list = vector.get();
 
 		assertEquals(Arrays.asList(9, 8, 7, 6, 1), list);
-	}
-	
-	@Test
-	public void subTest() {
-		Vector vectorC = new VectorImpl(null);
-
-		vectorC = vectorC.sub(new VectorImpl(Arrays.asList(10, 10, 10)), new VectorImpl(Arrays.asList(20, 30, 40)));
-		assertEquals(Arrays.asList(-10, -20, -30), vectorC.get());
-
-		vectorC = vectorC.sub(new VectorImpl(Arrays.asList(-100, 0, 500)), new VectorImpl(Arrays.asList(90, 80, 100)));
-		assertEquals(Arrays.asList(-190, -80, 400), vectorC.get());
-
-		vectorC = vectorC.sub(new VectorImpl(Arrays.asList(1, 2, 3, 4, 5, 6)), new VectorImpl(Arrays.asList(1, 2, 3, 4, 5, 6)));
-		assertEquals(Arrays.asList(0, 0, 0, 0, 0, 0), vectorC.get());
 	}
 }

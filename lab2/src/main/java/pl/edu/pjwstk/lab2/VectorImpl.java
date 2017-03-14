@@ -14,8 +14,8 @@ public class VectorImpl implements Vector {
 		List<Integer> vectorList = vector.get();
 		List<Integer> newList = new ArrayList<Integer>();
 	
-		assert vectorList.size() == list.size();
-		assert vectorList.size() > 0;
+		if (vectorList.size() != list.size()) throw new ErrorException();
+		if (vectorList.size() <= 0) throw new ErrorException();
 
 		for(int i = 0; i < list.size(); i++) {
 			newList.add(list.get(i) + vectorList.get(i));
@@ -29,15 +29,15 @@ public class VectorImpl implements Vector {
 		List<Integer> listB = b.get();
 		List<Integer> listC = new ArrayList<Integer>();
 
-		assert listA.size() == listB.size();
-		assert listA.size() > 0;
-		assert listB.size() > 0;
+		if (listA.size() != listB.size()) throw new ErrorException();
+		if (listA.size() <= 0) throw new ErrorException();
+		if (listB.size() <= 0) throw new ErrorException();
 
 		for(int i = 0; i < listA.size(); i++) {
 			listC.add(listA.get(i) + listB.get(i));
 		}
 
-		assert listC.size() == listA.size();
+		if (listC.size() != listA.size()) throw new ErrorException();
 
 		return new VectorImpl(listC);
 	}
@@ -47,15 +47,15 @@ public class VectorImpl implements Vector {
 		List<Integer> listB = b.get();
 		List<Integer> listC = new ArrayList<Integer>();
 
-		assert listA.size() == listB.size();
-		assert listA.size() > 0;
-		assert listB.size() > 0;
+		if (listA.size() != listB.size()) throw new ErrorException();
+		if (listA.size() <= 0) throw new ErrorException();
+		if (listB.size() <= 0) throw new ErrorException();
 
 		for(int i = 0; i < listA.size(); i++) {
 			listC.add(listA.get(i) - listB.get(i));
 		}
 
-		assert listC.size() == listA.size();
+		if (listC.size() != listA.size()) throw new ErrorException();
 
 		return new VectorImpl(listC);
 	}
@@ -65,7 +65,7 @@ public class VectorImpl implements Vector {
 	}
 
 	public void set(List<Integer> list) {
-		assert list.size() > 0;
+		if (list.size() <= 0) throw new ErrorException();
 		this.list = list;
 	}
 }
