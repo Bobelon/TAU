@@ -1,74 +1,45 @@
 package pl.edu.pjwstk.lab3;
 
+import static org.junit.Assert.*;
+
+import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
+
+import org.easymock.Mock;
+import org.easymock.TestSubject;
 import org.junit.Test;
 
 public class AlarmTest {
 
+	@Mock
+	private MyCalendar myCalendar = new MyCalendar(2017, 3, 14, 15, 21);
+
+	@TestSubject
+	private Alarm alarm = new AlarmImpl(myCalendar);
+	
 	@Test
 	public void ringTest() {
-		Alarm alarm = new AlarmImpl();
+		myCalendar.set(2017, 3, 14, 15, 21);
+		MyCalendar t0 = new MyCalendar(2017, 3, 14, 15, 21);
 		
-		/*
-		 * alarm.shouldRing(t0) => true
-		 * alarm.shouldRing(t0) => false
-		 * alarm.shouldRing(t1) => false
-		 * alarm.shouldRing(t0) => true
-		 */
-	}
-	
-	@Test
-	public void addTest() {
-		Alarm alarm = new AlarmImpl();		
-	
-		/*
-		 * alarm.addAlarmTime(t0)
-		 * alarm.addAlarmTime(t1)
-		 * alarm.addAlarmTime(t2) 
-		 */
+		// Sprawdza czy aktualnie musi dzwonić. Przy drugim sprawdzeniu nie powinno już dzwonić
+		alarm.addAlarmTime(t0);	
+		assertEquals(alarm.shouldRing(), true);		
+		assertEquals(alarm.shouldRing(), false);		
+		alarm.addAlarmTime(t0);
+		assertEquals(alarm.shouldRing(), true);
 		
-		/*
-		 * alarm.shouldRing(t0) => true
-		 * alarm.shouldRing(t1) => true
-		 * alarm.shouldRing(t2) => true
-		 * alarm.shouldRing(t3) => false
-		 */
-	}
-	
-	@Test
-	public void clearTest() {
-		Alarm alarm = new AlarmImpl();
 		
-		/*
-		 * alarm.addAlarmTime(t0)
-		 * alarm.addAlarmTime(t1)
-		 * alarm.addAlarmTime(t2)
-		 */
+		MyCalendar t1 = new MyCalendar(2018, 3, 14, 15, 21);
+		MyCalendar t2 = new MyCalendar(2017, 3, 14, 15, 30);
 		
-		/*
-		 * alarm.shouldRing(t0) => true
-		 * alarm.shouldRing(t1) => true
-		 * alarm.shouldRing(t2) => true
-		 */
+		// Dodanie 2 czasów, ale obecnie nie powinno dzwonić
+		alarm.addAlarmTime(t1);
+		alarm.addAlarmTime(t2);
+		assertEquals(alarm.shouldRing(), false);		
 		
-		/*
-		 * alarm.clearAlarmTime(t0);
-		 * alarm.clearAlarmTime(t1);
-		 * alarm.clearAlarmTime(t2);
-		 */
-		
-		/*
-		 * alarm.shouldRing(t0) => false
-		 * alarm.shouldRing(t1) => false
-		 * alarm.shouldRing(t2) => false
-		 */
-	}
-	
-	@Test(expected=Exception.class) 
-	public void addAlarmErrorTest() {
-		Alarm alarm = new AlarmImpl();
-		
-		/*
-		 * alarm.addAlarmTime(przeszły czas);
-		 */
+		alarm.addAlarmTime(t0);
+		assertEquals(alarm.shouldRing(), true);
 	}
 }
