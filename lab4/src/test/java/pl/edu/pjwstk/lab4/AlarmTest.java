@@ -1,41 +1,42 @@
 package pl.edu.pjwstk.lab4;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
-import org.easymock.Mock;
-import org.easymock.TestSubject;
 import org.junit.Test;
 
 public class AlarmTest {
-
-	@Mock
-	private MyCalendar myCalendar = new MyCalendar(2017, 3, 14, 15, 21);
-
-	@TestSubject
-	private Alarm alarm = new AlarmImpl(myCalendar);
+	
+	
+	MyCalendar myCalendar = mock(MyCalendar.class);	
+	
+	private Alarm alarm;
 	
 	@Test
 	public void ringTest() {
-		myCalendar.set(2017, 3, 14, 15, 21);
-		MyCalendar t0 = new MyCalendar(2017, 3, 14, 15, 21);
+		when(myCalendar.getTime()).thenReturn(new MyCalendar(2017, 3, 14, 15, 21));
+		
+		alarm = new AlarmImpl(myCalendar);
 		
 		// Sprawdza czy aktualnie musi dzwonić. Przy drugim sprawdzeniu nie powinno już dzwonić
-		alarm.addAlarmTime(t0);	
+		alarm.addAlarmTime(new MyCalendar(2017, 3, 14, 15, 21));
+		//verify(alarm.shouldRing());
+		
 		assertTrue(alarm.shouldRing());		
 		assertFalse(alarm.shouldRing());		
-		alarm.addAlarmTime(t0);
+		alarm.addAlarmTime(new MyCalendar(2017, 3, 14, 15, 21));
 		assertTrue(alarm.shouldRing());
-		
-		
-		MyCalendar t1 = new MyCalendar(2018, 3, 14, 15, 21);
-		MyCalendar t2 = new MyCalendar(2017, 3, 14, 15, 30);
 		
 		// Dodanie 2 czasów, ale obecnie nie powinno dzwonić
-		alarm.addAlarmTime(t1);
-		alarm.addAlarmTime(t2);
-		assertFalse(alarm.shouldRing());		
-		
-		alarm.addAlarmTime(t0);
+		alarm.addAlarmTime(new MyCalendar(2018, 3, 14, 15, 21));
+		alarm.addAlarmTime(new MyCalendar(2017, 3, 14, 15, 30));
+		assertFalse(alarm.shouldRing());
+
+		// Zrobienie, żeby wcześniej dodane czasy, działały
+		when(myCalendar.getTime()).thenReturn(new MyCalendar(2018, 3, 14, 15, 21));
 		assertTrue(alarm.shouldRing());
+		when(myCalendar.getTime()).thenReturn(new MyCalendar(2017, 3, 14, 15, 30));
+		assertTrue(alarm.shouldRing());
+		
 	}
 }
