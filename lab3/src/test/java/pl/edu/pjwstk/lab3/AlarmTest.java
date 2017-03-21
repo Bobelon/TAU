@@ -25,10 +25,10 @@ public class AlarmTest {
 		
 		// Sprawdza czy aktualnie musi dzwonić. Przy drugim sprawdzeniu nie powinno już dzwonić
 		alarm.addAlarmTime(t0);	
-		assertEquals(alarm.shouldRing(), true);		
-		assertEquals(alarm.shouldRing(), false);		
+		assertTrue(alarm.shouldRing());		
+		assertFalse(alarm.shouldRing());		
 		alarm.addAlarmTime(t0);
-		assertEquals(alarm.shouldRing(), true);
+		assertTrue(alarm.shouldRing());
 		
 		
 		MyCalendar t1 = new MyCalendar(2018, 3, 14, 15, 21);
@@ -37,9 +37,9 @@ public class AlarmTest {
 		// Dodanie 2 czasów, ale obecnie nie powinno dzwonić
 		alarm.addAlarmTime(t1);
 		alarm.addAlarmTime(t2);
-		assertEquals(alarm.shouldRing(), false);		
+		assertFalse(alarm.shouldRing());		
 		
 		alarm.addAlarmTime(t0);
-		assertEquals(alarm.shouldRing(), true);
+		assertTrue(alarm.shouldRing());
 	}
 }
