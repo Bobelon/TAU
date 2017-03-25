@@ -5,23 +5,20 @@ import static org.mockito.Mockito.*;
 
 import org.junit.Test;
 
-public class AlarmTest {
-	
+public class AlarmTest {	
 	
 	MyCalendar myCalendar = mock(MyCalendar.class);	
 	
 	private Alarm alarm;
 	
 	@Test
-	public void ringTest() {
-		when(myCalendar.getTime()).thenReturn(new MyCalendar(2017, 3, 14, 15, 21));
-		
+	public void ringTest() {		
 		alarm = new AlarmImpl(myCalendar);
+		
+		when(myCalendar.getTime()).thenReturn(new MyCalendar(2017, 3, 14, 15, 21));
 		
 		// Sprawdza czy aktualnie musi dzwonić. Przy drugim sprawdzeniu nie powinno już dzwonić
 		alarm.addAlarmTime(new MyCalendar(2017, 3, 14, 15, 21));
-		//verify(alarm.shouldRing());
-		
 		assertTrue(alarm.shouldRing());		
 		assertFalse(alarm.shouldRing());		
 		alarm.addAlarmTime(new MyCalendar(2017, 3, 14, 15, 21));
@@ -36,7 +33,6 @@ public class AlarmTest {
 		when(myCalendar.getTime()).thenReturn(new MyCalendar(2018, 3, 14, 15, 21));
 		assertTrue(alarm.shouldRing());
 		when(myCalendar.getTime()).thenReturn(new MyCalendar(2017, 3, 14, 15, 30));
-		assertTrue(alarm.shouldRing());
-		
+		assertTrue(alarm.shouldRing());		
 	}
 }
