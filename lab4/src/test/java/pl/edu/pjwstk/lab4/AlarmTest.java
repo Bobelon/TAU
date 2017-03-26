@@ -3,6 +3,7 @@ package pl.edu.pjwstk.lab4;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
+
 import org.junit.Test;
 
 public class AlarmTest {	
