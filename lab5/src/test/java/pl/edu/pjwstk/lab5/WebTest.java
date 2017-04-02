@@ -25,18 +25,67 @@ public class WebTest {
 
 	@BeforeClass
 	public static void driverSetup() {
-		// ChromeDrirver, FireforxDriver, ...
 		System.setProperty("webdriver.chrome.driver", "..\\ChromeDriver\\chromedriver.exe");
 		driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
 	@Test
-	public void homePage(){
-		driver.get("http://localhost/TIN/Projekt/Kod/src/");
+	public void loginPageTest(){
+		driver.get("http://localhost/TIN/Projekt/Kod/src/");		
 		
-		element = driver.findElement(By.linkText("BigBang"));
+		driver.findElement(By.linkText("Zaloguj")).click();
+		
+		element = driver.findElement(By.name("username"));
 		assertNotNull(element);
+		
+		element = driver.findElement(By.name("password"));
+		assertNotNull(element);
+	}
+	
+	@Test
+	public void wrongLoginTest() {
+		driver.get("http://localhost/TIN/Projekt/Kod/src/");
+		driver.findElement(By.linkText("Zaloguj")).click();
+		
+		// wrong username and password
+		driver.findElement(By.name("username")).sendKeys("błędnyużytkownik");
+		driver.findElement(By.name("password")).sendKeys("błędnehasło");
+		driver.findElement(By.name("password")).submit();
+		
+		element = driver.findElement(By.linkText("Zaloguj"));
+		assertNotNull(element);
+		
+		// wrong username
+		driver.findElement(By.name("username")).sendKeys("błędnyużytkownik");
+		driver.findElement(By.name("password")).sendKeys("admin123");
+		driver.findElement(By.name("password")).submit();
+		
+		element = driver.findElement(By.linkText("Zaloguj"));
+		assertNotNull(element);
+		
+		// wrong password
+		driver.findElement(By.name("username")).sendKeys("admin");
+		driver.findElement(By.name("password")).sendKeys("błędnehasło");
+		driver.findElement(By.name("password")).submit();
+		
+		element = driver.findElement(By.linkText("Zaloguj"));
+		assertNotNull(element);
+	}
+	
+	@Test
+	public void correctLoginTest() {
+		driver.get("http://localhost/TIN/Projekt/Kod/src/");
+		driver.findElement(By.linkText("Zaloguj")).click();
+		
+		// correct username and password
+		driver.findElement(By.name("username")).sendKeys("admin");
+		driver.findElement(By.name("password")).sendKeys("admin123");
+		driver.findElement(By.name("password")).submit();
+		
+		element = driver.findElement(By.linkText("Wyloguj"));
+		assertNotNull(element);
+		
+		element.click(); // Wylogowanie się, żeby powrócić do stanu przed testem
 	}
 
 	@AfterClass
