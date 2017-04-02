@@ -13,6 +13,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -29,6 +30,7 @@ public class WebTest {
 	public static void driverSetup() {
 		System.setProperty("webdriver.chrome.driver", "..\\ChromeDriver\\chromedriver.exe");
 		driver = new ChromeDriver();		
+		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 
 		// Przechodzenie do sekcji logowania
 		driver.get("http://localhost/TIN/Projekt/Kod/src/");	
@@ -49,7 +51,7 @@ public class WebTest {
 	}
 	
 	@AfterClass
-	public static void clean(){		
+	public static void cleanp() {
 		driver.quit();
 	}
 
@@ -104,8 +106,8 @@ public class WebTest {
 		element.click(); // Wylogowanie się, żeby powrócić do stanu przed testem
 	}
 
-	@AfterClass
-	public static void cleanp() {
-		driver.quit();
+	@Test
+	public void jQueryTest(){		
+		assertTrue(! driver.getPageSource().contains("<script"));
 	}
 }
