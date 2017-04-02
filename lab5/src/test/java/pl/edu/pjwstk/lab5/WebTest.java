@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -22,19 +23,38 @@ public class WebTest {
 	
 	private static WebDriver driver;
 	WebElement element;
+	private static int id = 1;
 
 	@BeforeClass
 	public static void driverSetup() {
 		System.setProperty("webdriver.chrome.driver", "..\\ChromeDriver\\chromedriver.exe");
-		driver = new ChromeDriver();
+		driver = new ChromeDriver();		
+
+		// Przechodzenie do sekcji logowania
+		driver.get("http://localhost/TIN/Projekt/Kod/src/");	
+		driver.findElement(By.linkText("Zaloguj")).click();
+	}
+	
+	@After
+	public void takeScreenshot(){		
+		File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		String fileName = "Test" + id++ + ".png";
+		
+		try {
+			FileUtils.copyFile(screenshot, new File("target\\img\\" + fileName));
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@AfterClass
+	public static void clean(){		
+		driver.quit();
 	}
 
 	@Test
-	public void loginPageTest(){
-		driver.get("http://localhost/TIN/Projekt/Kod/src/");		
-		
-		driver.findElement(By.linkText("Zaloguj")).click();
-		
+	public void loginPageTest(){		
 		element = driver.findElement(By.name("username"));
 		assertNotNull(element);
 		
@@ -44,9 +64,6 @@ public class WebTest {
 	
 	@Test
 	public void wrongLoginTest() {
-		driver.get("http://localhost/TIN/Projekt/Kod/src/");
-		driver.findElement(By.linkText("Zaloguj")).click();
-		
 		// wrong username and password
 		driver.findElement(By.name("username")).sendKeys("błędnyużytkownik");
 		driver.findElement(By.name("password")).sendKeys("błędnehasło");
@@ -74,9 +91,6 @@ public class WebTest {
 	
 	@Test
 	public void correctLoginTest() {
-		driver.get("http://localhost/TIN/Projekt/Kod/src/");
-		driver.findElement(By.linkText("Zaloguj")).click();
-		
 		// correct username and password
 		driver.findElement(By.name("username")).sendKeys("admin");
 		driver.findElement(By.name("password")).sendKeys("admin123");
@@ -84,6 +98,8 @@ public class WebTest {
 		
 		element = driver.findElement(By.linkText("Wyloguj"));
 		assertNotNull(element);
+		
+		takeScreenshot();
 		
 		element.click(); // Wylogowanie się, żeby powrócić do stanu przed testem
 	}
