@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.lab5;
+package pl.edu.pjwstk.lab6;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;

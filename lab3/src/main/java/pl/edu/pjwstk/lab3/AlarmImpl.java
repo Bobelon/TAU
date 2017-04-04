@@ -19,10 +19,10 @@ public class AlarmImpl implements Alarm {
 
 	public boolean shouldRing() {	
 		for(MyCalendar c : dates) {
-			if(c.equals(myCalendar.getTime())) {
+			/*if(c.equals(myCalendar.getTime())) {
 				dates.remove(c);
 				return true;
-			}
+			}*/
 		}
 		return false;
 	}
