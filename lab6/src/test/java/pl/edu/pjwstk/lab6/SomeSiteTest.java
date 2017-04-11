@@ -32,10 +32,10 @@ public class SomeSiteTest {
 		caps.setJavascriptEnabled(true);
 		caps.setCapability("takesScreenshot", true);
 
-		char sep = '\\';
-		// char sep = '/';
-		String path = ".." + sep + "Phantom" + sep + "phantomjs-2.1.1-windows" + sep + "bin" + sep + "phantomjs.exe";
-
+//		char sep = '\\';
+//		char sep = '/';
+//		String path = ".." + sep + "Phantom" + sep + "phantomjs-2.1.1-windows" + sep + "bin" + sep + "phantomjs.exe";
+		String path = "/tmp/phantomjs";
 		caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, path);
 		driver = new PhantomJSDriver(caps);
 
