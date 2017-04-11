@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.lab6;
+/*package pl.edu.pjwstk.lab6;
 
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
@@ -52,3 +52,4 @@ public class SiteSteps {
         assertTrue( !pages.helpdesk().getClassesForLink(linkText).contains(classInside));
     }
 }
+*/

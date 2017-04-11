@@ -1,11 +1,11 @@
-package pl.edu.pjwstk.lab6;
+/*package pl.edu.pjwstk.lab6;
 
 import org.jbehave.web.selenium.WebDriverProvider;
 import pl.edu.pjatk.tau.jbhsel.pages.HelpDesk;
 
-/**
+*//**
  * Created by tp on 03.04.17.
- */
+ *//*
 public class Pages {
 
     private WebDriverProvider driverProvider;
@@ -25,3 +25,4 @@ public class Pages {
         return helpDesk;
     }
 }
+*/
