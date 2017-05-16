@@ -20,12 +20,7 @@ public class CarManagerTest {
 
 	public CarManagerTest() throws SQLException {
 	}
-
-	@After
-    public void cleanup() throws SQLException {
-        //personManager.clearPersons();
-    }
-
+	
 	@Test
 	public void checkConnection() {
 	    assertNotNull(carManager.getConnection());
@@ -39,20 +34,20 @@ public class CarManagerTest {
 		carManager.deleteCar(car);
 	}
 
-	/*@Test
+	@Test
 	public void updateTest() throws SQLException{	
 		int id = 300;
-		Car car1 = new Car(id, "Testowe auto", 2017);
-		Car car2 = carManager.getAllCars().get(id);
+		Car car1 = new Car(id, "Testowe auto", 2017); // Przykladowy samochod o id == 300
+		Car car2 = carManager.getCar(car1); // Samochod z bazy danych o id == 300		
 		
-		
-		carManager.updateCar(car2);	
+		carManager.updateCar(car1);	// Samochod o id == 300 zmieniany jest na przykladowy samochod
 		System.err.println(carManager.getAllCars().get(id).getName());
 		System.err.println(car2.getName());
-		assertEquals(car2.getName(), carManager.getAllCars().get(id).getName());
-		assertEquals(car2.getYear(), carManager.getAllCars().get(id).getYear());
-		carManager.updateCar(car1);	
-		assertEquals(car1.getName(), carManager.getAllCars().get(id).getName());
-		assertEquals(car1.getYear(), carManager.getAllCars().get(id).getYear());
-	}*/
+		assertEquals(car1.getName(), carManager.getCar(car1).getName());
+		assertEquals(car1.getYear(), carManager.getCar(car1).getYear());
+		
+		carManager.updateCar(car2); // Samochod jest przywracany do stanu przed testem	
+		assertEquals(car2.getName(), carManager.getCar(car2).getName());
+		assertEquals(car2.getYear(), carManager.getCar(car2).getYear());
+	}
 }

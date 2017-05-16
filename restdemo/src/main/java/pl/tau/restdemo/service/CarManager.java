@@ -22,5 +22,4 @@ public interface CarManager {
 	public Car getCar(Car car);
 	public void updateCar(Car car);
 	public List<Car> getAllCars();
-
 }
