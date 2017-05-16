@@ -31,7 +31,7 @@ public class CarManagerImpl implements CarManager {
 		statement = connection.createStatement();
 
 		ResultSet rs = connection.getMetaData().getTables(null, null, null, null);
-		boolean tableExists = true;
+		boolean tableExists = false;
 		while (rs.next()) {
 			if ("Car".equalsIgnoreCase(rs.getString("TABLE_NAME"))) {
 				tableExists = true;
@@ -133,5 +133,4 @@ public class CarManagerImpl implements CarManager {
 		}
 		return cars;
 	}
-
 }

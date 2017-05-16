@@ -30,19 +30,20 @@ public class CarManagerTest {
 	public void addTest() throws SQLException{		
 		Car car = new Car(1000, "Testowe auto", 2017);
 		carManager.addCar(car);		
-		assertEquals(car.getName(), carManager.getAllCars().get(1000).getName());
+		assertEquals(car.getName(), carManager.getCar(car).getName());
 		carManager.deleteCar(car);
 	}
 
 	@Test
 	public void updateTest() throws SQLException{	
 		int id = 300;
+		carManager.addCar(new Car(id, "JMercedes", 2015));
+		
 		Car car1 = new Car(id, "Testowe auto", 2017); // Przykladowy samochod o id == 300
 		Car car2 = carManager.getCar(car1); // Samochod z bazy danych o id == 300		
 		
 		carManager.updateCar(car1);	// Samochod o id == 300 zmieniany jest na przykladowy samochod
-		System.err.println(carManager.getAllCars().get(id).getName());
-		System.err.println(car2.getName());
+		
 		assertEquals(car1.getName(), carManager.getCar(car1).getName());
 		assertEquals(car1.getYear(), carManager.getCar(car1).getYear());
 		
