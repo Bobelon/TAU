@@ -80,7 +80,7 @@
 				<configuration>
 					<scanIntervalSeconds>3</scanIntervalSeconds>
 					<webAppConfig>
-						<contextPath>/jdbc</contextPath>
+						<contextPath>/car</contextPath>
 					</webAppConfig>
 				</configuration>
 			</plugin>

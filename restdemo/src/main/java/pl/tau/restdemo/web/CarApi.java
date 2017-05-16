@@ -3,8 +3,8 @@ package pl.tau.restdemo.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import pl.tau.restdemo.domain.Person;
-import pl.tau.restdemo.service.PersonManager;
+import pl.tau.restdemo.domain.Car;
+import pl.tau.restdemo.service.CarManager;
 
 import javax.print.attribute.standard.Media;
 import javax.servlet.annotation.WebServlet;
@@ -18,11 +18,11 @@ import java.util.concurrent.atomic.AtomicLong;
  * Created by tp on 24.04.17.
  */
 @RestController
-public class PersonApi {
+public class CarApi {
     private final AtomicLong counter = new AtomicLong();
 
     @Autowired
-    PersonManager personManager;
+    CarManager carManager;
 
 
     @RequestMapping("/")
@@ -31,16 +31,16 @@ public class PersonApi {
     }
 
     @RequestMapping(
-            value = "/person",
+            value = "/car",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     @ResponseBody
-    public Person getPerson(@RequestParam(value="name", defaultValue="Rzedziwoj") String name) {
-        Person p = new Person();
+    public Car getCar(@RequestParam(value="name", defaultValue="Nissan") String name) {
+        Car p = new Car();
         p.setId(counter.incrementAndGet());
         p.setName(name);
-        p.setYob(1912);
+        p.setYear(1912);
         return p;
     }
 

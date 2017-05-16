@@ -11,15 +11,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import pl.tau.restdemo.domain.Person;
+import pl.tau.restdemo.domain.Car;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public interface PersonManager {
+public interface CarManager {
 	public Connection getConnection();
-	public void deletePerson(Person person) throws SQLException;
-	public void clearPersons() throws SQLException;
-	public int addPerson(Person person);
-	public Person getPerson(Person person);
-	public List<Person> getAllPersons();
+	public void deleteCar(Car car) throws SQLException;
+	public void clearCar() throws SQLException;
+	public int addCar(Car car);
+	public Car getCar(Car car);
+	public void updateCar(Car car);
+	public List<Car> getAllCars();
 
 }

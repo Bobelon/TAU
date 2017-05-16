@@ -1,20 +1,21 @@
 package pl.tau.restdemo.domain;
 
-public class Person {
+public class Car {
 	
-	private long id;
-	
+	private long id;	
 	private String name;
-	private int yob;
+	private int year;
 	
-	public Person() {
+	public Car() {
 	}
-//
-//	public Person(String name, int yob) {
-//		super();
-//		this.name = name;
-//		this.yob = yob;
-//	}
+
+	public Car(int id, String name, int year) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.year = year;
+	}
+	
 	public long getId() {
 		return id;
 	}
@@ -27,11 +28,11 @@ public class Person {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getYob() {
-		return yob;
+	public int getYear() {
+		return year;
 	}
-	public void setYob(int yob) {
-		this.yob = yob;
+	public void setYear(int year) {
+		this.year = year;
 	}
 	
 }
