@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import pl.tau.restdemo.domain.Car;
@@ -20,12 +22,7 @@ public class CarManagerTest {
 
 	public CarManagerTest() throws SQLException {
 	}
-	
-	@After
-	public void setDatabase() {
-		carManager.addCar(new Car(120, "Auto do kasacji", 1979));
-	}
-	
+		
 	@Test
 	public void checkConnection() {
 	    assertNotNull(carManager.getConnection());
@@ -59,6 +56,8 @@ public class CarManagerTest {
 
 	@Test
 	public void deleteTest() throws SQLException {	
+		carManager.addCar(new Car(120, "Auto do kasacji", 1979));
+		
 		Car toDelete = new Car(120, "Auto do kasacji", 1979);		
 		int before = carManager.getAllCars().size();
 		
