@@ -21,6 +21,11 @@ public class CarManagerTest {
 	public CarManagerTest() throws SQLException {
 	}
 	
+	@After
+	public void setDatabase() {
+		carManager.addCar(new Car(120, "Auto do kasacji", 1979));
+	}
+	
 	@Test
 	public void checkConnection() {
 	    assertNotNull(carManager.getConnection());
@@ -50,5 +55,19 @@ public class CarManagerTest {
 		carManager.updateCar(car2); // Samochod jest przywracany do stanu przed testem	
 		assertEquals(car2.getName(), carManager.getCar(car2).getName());
 		assertEquals(car2.getYear(), carManager.getCar(car2).getYear());
+	}
+
+	@Test
+	public void deleteTest() throws SQLException {	
+		Car toDelete = new Car(120, "Auto do kasacji", 1979);		
+		int before = carManager.getAllCars().size();
+		
+		assertNotNull(carManager.getCar(toDelete)); // Upewnienie sie, ze auto jest w bazie
+		
+		carManager.deleteCar(toDelete); // usuniecie auta
+		
+		int after = carManager.getAllCars().size();
+		
+		assertTrue(before - 1 == after);
 	}
 }
