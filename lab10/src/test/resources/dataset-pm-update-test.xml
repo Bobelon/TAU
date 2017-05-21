@@ -1,0 +1,34 @@
+<dataset>
+	<car NAME="Poczatkowe autko 11" YEAR="2011" />
+    <car NAME="Poczatkowe autko 12" YEAR="2012" />
+    <car NAME="Poczatkowe autko 13" YEAR="2013" />
+    <car NAME="Poczatkowe autko 14" YEAR="2014" />
+    <car NAME="Poczatkowe autko 15" YEAR="2015" />
+    <car NAME="Poczatkowe autko 16" YEAR="2016" />
+    <car NAME="Poczatkowe autko 17" YEAR="2017" />
+    <car NAME="Poczatkowe autko 18" YEAR="2018" />
+    <car NAME="Poczatkowe autko 19" YEAR="2019" />
+    <car NAME="Poczatkowe autko 20" YEAR="2020" />  
+    
+    <car NAME="Dodany Pan samochodzik 1" YEAR="2011" />
+    <car NAME="Dodany Pan samochodzik 2" YEAR="2012" />
+    <car NAME="Dodany Pan samochodzik 3" YEAR="2013" />
+    <car NAME="Dodany Pan samochodzik 4" YEAR="2014" />
+    <car NAME="Dodany Pan samochodzik 5" YEAR="2015" />
+    <car NAME="Dodany Pan samochodzik 6" YEAR="2016" />
+    <car NAME="Dodany Pan samochodzik 7" YEAR="2017" />
+    <car NAME="Dodany Pan samochodzik 8" YEAR="2018" />
+    <car NAME="Dodany Pan samochodzik 9" YEAR="2019" />
+    <car NAME="Dodany Pan samochodzik 10" YEAR="2020" />
+    
+    <car NAME="Auto brum brum 1" YEAR="2011" />
+    <car NAME="Auto brum brum 2" YEAR="2012" />
+    <car NAME="Auto brum brum 3" YEAR="2013" />
+    <car NAME="Auto brum brum 4" YEAR="2014" />
+    <car NAME="Auto brum brum 5" YEAR="2015" />
+    <car NAME="Auto brum brum 6" YEAR="2016" />
+    <car NAME="Auto brum brum 7" YEAR="2017" />
+    <car NAME="Auto brum brum 8" YEAR="2018" />
+    <car NAME="Auto brum brum 9" YEAR="2019" />
+    <car NAME="Auto brum brum 10" YEAR="2020" />
+</dataset>

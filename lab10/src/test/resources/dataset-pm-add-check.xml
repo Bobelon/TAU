@@ -1,0 +1,33 @@
+<dataset>    
+    <car NAME="Poczatkowe autko 1" YEAR="2001" />
+    <car NAME="Poczatkowe autko 2" YEAR="2002" />
+    <car NAME="Poczatkowe autko 3" YEAR="2003" />
+    <car NAME="Poczatkowe autko 4" YEAR="2004" />
+    <car NAME="Poczatkowe autko 5" YEAR="2005" />
+    <car NAME="Poczatkowe autko 6" YEAR="2006" />
+    <car NAME="Poczatkowe autko 7" YEAR="2007" />
+    <car NAME="Poczatkowe autko 8" YEAR="2008" />
+    <car NAME="Poczatkowe autko 9" YEAR="2009" />
+    <car NAME="Poczatkowe autko 10" YEAR="2010" />
+    <car NAME="Poczatkowe autko 11" YEAR="2011" />
+    <car NAME="Poczatkowe autko 12" YEAR="2012" />
+    <car NAME="Poczatkowe autko 13" YEAR="2013" />
+    <car NAME="Poczatkowe autko 14" YEAR="2014" />
+    <car NAME="Poczatkowe autko 15" YEAR="2015" />
+    <car NAME="Poczatkowe autko 16" YEAR="2016" />
+    <car NAME="Poczatkowe autko 17" YEAR="2017" />
+    <car NAME="Poczatkowe autko 18" YEAR="2018" />
+    <car NAME="Poczatkowe autko 19" YEAR="2019" />
+    <car NAME="Poczatkowe autko 20" YEAR="2020" />  
+    
+    <car NAME="Dodany Pan samochodzik 1" YEAR="2011" />
+    <car NAME="Dodany Pan samochodzik 2" YEAR="2012" />
+    <car NAME="Dodany Pan samochodzik 3" YEAR="2013" />
+    <car NAME="Dodany Pan samochodzik 4" YEAR="2014" />
+    <car NAME="Dodany Pan samochodzik 5" YEAR="2015" />
+    <car NAME="Dodany Pan samochodzik 6" YEAR="2016" />
+    <car NAME="Dodany Pan samochodzik 7" YEAR="2017" />
+    <car NAME="Dodany Pan samochodzik 8" YEAR="2018" />
+    <car NAME="Dodany Pan samochodzik 9" YEAR="2019" />
+    <car NAME="Dodany Pan samochodzik 10" YEAR="2020" />    
+</dataset>
