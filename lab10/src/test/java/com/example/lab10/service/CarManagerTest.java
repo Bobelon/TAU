@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.lab10.service;
+package com.example.lab10.service;
 
 import org.dbunit.Assertion;
 import org.dbunit.DBTestCase;
@@ -16,9 +16,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import pl.edu.pjwstk.lab10.domain.Car;
-import pl.edu.pjwstk.lab10.service.CarManager;
-import pl.edu.pjwstk.lab10.service.CarManagerImpl;
+import com.example.lab10.domain.Car;
+import com.example.lab10.service.CarManager;
+import com.example.lab10.service.CarManagerImpl;
 
 import static org.junit.Assert.assertEquals;
 

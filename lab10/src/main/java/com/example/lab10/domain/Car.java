@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.lab10.domain;
+package com.example.lab10.domain;
 
 public class Car {
 	

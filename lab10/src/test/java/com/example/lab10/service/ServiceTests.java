@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.lab10.service;
+package com.example.lab10.service;
 
 import org.dbunit.JdbcDatabaseTester;
 import org.dbunit.PropertiesBasedJdbcDatabaseTester;
@@ -9,6 +9,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
+
+import com.example.lab10.service.CarManagerImpl;
 
 
 @RunWith(Suite.class)
@@ -24,6 +26,7 @@ public class ServiceTests {
         System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD, "" );
 
         JdbcDatabaseTester databaseTester = new PropertiesBasedJdbcDatabaseTester();
+        CarManagerImpl manager = new CarManagerImpl(databaseTester.getConnection().getConnection());
 
         FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(
                 ServiceTests.class.getClassLoader().

@@ -1,8 +1,9 @@
-package pl.edu.pjwstk.lab10.service;
+package com.example.lab10.service;
 
 import org.springframework.stereotype.Component;
 
-import pl.edu.pjwstk.lab10.domain.Car;
+import com.example.lab10.domain.Car;
+
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.sql.*;

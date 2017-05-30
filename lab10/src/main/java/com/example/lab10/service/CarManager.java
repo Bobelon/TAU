@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.lab10.service;
+package com.example.lab10.service;
 
 // w oparciu o przyklad J Neumanna, przerobiony przez T Puzniakowskiego
 
@@ -11,7 +11,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import pl.edu.pjwstk.lab10.domain.Car;
+import com.example.lab10.domain.Car;
+
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public interface CarManager {

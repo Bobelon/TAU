@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.lab10.helper;
+package com.example.helper;
 
 import java.io.FileOutputStream;
 import java.sql.Connection;
