@@ -19,4 +19,6 @@ public interface SellingManager {
 	Long addUnicorn(Unicorn unicorn);
 	List<Unicorn> getLiveUnicorns();
 	Unicorn findUnicornById(Long id);
+	
+	List<Unicorn> searchUnicorn(Long min, Long max);
 }

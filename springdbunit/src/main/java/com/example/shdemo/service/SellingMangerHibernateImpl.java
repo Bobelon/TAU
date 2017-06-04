@@ -109,4 +109,19 @@ public class SellingMangerHibernateImpl implements SellingManager {
 	public Unicorn findUnicornById(Long id) {
 		return (Unicorn) sessionFactory.getCurrentSession().get(Unicorn.class, id);
 	}
+	
+	
+	
+	
+	
+// ####################################################################################
+//  More advanced business method
+// ####################################################################################
+	
+	public 	List<Unicorn> searchUnicorn(Long min, Long max) {
+		return sessionFactory.getCurrentSession().getNamedQuery("unicorn.select")
+				.setParameter("min", min)
+				.setParameter("max", max)
+				.list();
+	}
 }

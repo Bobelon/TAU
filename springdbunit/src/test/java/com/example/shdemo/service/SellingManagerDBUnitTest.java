@@ -2,6 +2,10 @@ package com.example.shdemo.service;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +41,7 @@ public class SellingManagerDBUnitTest {
 	@Autowired
 	SellingManager sellingManager;
 
-	
-	
-	
+		
 	
 //####################################################################################
 // City tests
@@ -85,9 +87,7 @@ public class SellingManagerDBUnitTest {
         sellingManager.updateCity(new City(2L, "Pella's Wish", "69-345"));
         
         assertEquals(3, sellingManager.getAllCities().size());
-    }
-	
-	
+    }	
 	
 	
 	
@@ -108,4 +108,16 @@ public class SellingManagerDBUnitTest {
         
         assertEquals(4, sellingManager.getLiveUnicorns().size());
     }
+
+
+
+//####################################################################################
+// More advanced business method tests
+//####################################################################################	
+	
+	@Test
+	@DatabaseSetup("/fullData2.xml")
+	public void moreAdvancedBusinessMethodTest() {
+		assertEquals(5, sellingManager.searchUnicorn(3L, 7L).size());
+  }
 }

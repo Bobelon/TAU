@@ -9,7 +9,8 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({
-		@NamedQuery(name = "unicorn.all", query = "Select u from Unicorn u")
+		@NamedQuery(name = "unicorn.all", query = "SELECT u FROM Unicorn u"),
+		@NamedQuery(name = "unicorn.select", query = "SELECT u FROM Unicorn u WHERE u.id BETWEEN :min AND :max")
 })
 public class Unicorn {
 
