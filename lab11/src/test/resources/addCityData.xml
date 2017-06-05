@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>    
+  <CITY NAME="Glenarm" ZIPCODE="00-000"/> 
+  <CITY NAME="Hythe" ZIPCODE="11-111"/> 
+  <CITY NAME="Wolford" ZIPCODE="22-222"/> 
+  
+  <CITY NAME="Grasmere" ZIPCODE="33-333"/>
+  <CITY NAME="Lockinge" ZIPCODE="44-444"/>
+  <CITY NAME="Easthaven" ZIPCODE="55-555"/>
+</dataset>
