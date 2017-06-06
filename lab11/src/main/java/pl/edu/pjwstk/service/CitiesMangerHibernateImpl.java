@@ -15,7 +15,7 @@ import pl.edu.pjwstk.domain.Unicorn;
 
 @Component
 @Transactional
-public class SellingMangerHibernateImpl implements SellingManager {
+public class CitiesMangerHibernateImpl implements CitiesManager {
 
 	@Autowired
 	private SessionFactory sessionFactory;

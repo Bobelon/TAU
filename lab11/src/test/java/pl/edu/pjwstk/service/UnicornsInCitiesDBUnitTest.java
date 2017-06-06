@@ -25,7 +25,7 @@ import com.github.springtestdbunit.assertion.DatabaseAssertionMode;
 
 import pl.edu.pjwstk.domain.City;
 import pl.edu.pjwstk.domain.Unicorn;
-import pl.edu.pjwstk.service.SellingManager;
+import pl.edu.pjwstk.service.CitiesManager;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/beans.xml" })
@@ -41,7 +41,7 @@ public class UnicornsInCitiesDBUnitTest {
 
 
 	@Autowired
-	SellingManager sellingManager;
+	CitiesManager sellingManager;
 
 		
 	

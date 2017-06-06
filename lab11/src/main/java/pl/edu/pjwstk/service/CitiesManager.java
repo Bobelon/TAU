@@ -5,7 +5,7 @@ import java.util.List;
 import pl.edu.pjwstk.domain.City;
 import pl.edu.pjwstk.domain.Unicorn;
 
-public interface SellingManager {
+public interface CitiesManager {
 	
 	// City
 	void addCity(City city);
