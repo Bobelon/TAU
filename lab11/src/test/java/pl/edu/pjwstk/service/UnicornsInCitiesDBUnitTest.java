@@ -37,7 +37,7 @@ import pl.edu.pjwstk.service.SellingManager;
     DirtiesContextTestExecutionListener.class,
     TransactionalTestExecutionListener.class,
     DbUnitTestExecutionListener.class })
-public class SellingManagerDBUnitTest {
+public class UnicornsInCitiesDBUnitTest {
 
 
 	@Autowired
@@ -70,11 +70,9 @@ public class SellingManagerDBUnitTest {
 	    assertEquals(3, sellingManager.getAllCities().size());
 
 	    // delete 3 cities
-        sellingManager.deleteCity(new City(0L, "Glenarm", "00-000"));
-        sellingManager.deleteCity(new City(1L, "Hythe", "11-111"));
-        sellingManager.deleteCity(new City(2L, "Wolford", "22-222"));
+        sellingManager.deleteCity(new City(0L, "Glenarm", "00-000"));        sellingManager.deleteCity(new City(2L, "Wolford", "22-222"));
         
-        assertEquals(0, sellingManager.getAllCities().size());
+        assertEquals(1, sellingManager.getAllCities().size());
     }
 	
 	@Test
@@ -121,5 +119,17 @@ public class SellingManagerDBUnitTest {
 	@DatabaseSetup("/fullData2.xml")
 	public void moreAdvancedBusinessMethodTest() {
 		assertEquals(5, sellingManager.searchUnicorn(3L, 7L).size());
+		
+		List<Unicorn> dbUnicorns = sellingManager.searchUnicorn(3L, 7L);
+		List<Unicorn> assertUnicorns = new ArrayList<Unicorn>(Arrays.asList(
+				new Unicorn("Albany"),
+				new Unicorn("Aletha"),
+				new Unicorn("Bennettia"),
+				new Unicorn("Bellini"),
+				new Unicorn("Benicia")));
+		
+		for (int i = 0; i < dbUnicorns.size(); i++){
+			assertEquals(dbUnicorns.get(i).getName(),  assertUnicorns.get(i).getName());
+		}		
   }
 }
